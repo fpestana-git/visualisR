@@ -17,7 +17,7 @@
 #' @param resultsFolder directory where to save the results 
 #' @param plotMinimal show a minimal plot
 #' 
-#' @import Seurat
+#' @export drawDimPlot
 
 drawDimPlot <- function(seuratObject, datasetName, mapType = "umap",splitValue = NULL, heightValue = 10,widthValue = 10,colorVector = NULL,cells2highlight = NULL, sizeHighlightedCells = NULL,groupbyValue = NULL,labelValue = F,showLegend =FALSE, resultsFolder = resultsDirectory, plotMinimal = FALSE){
   dimplot_n <- DimPlot(seuratObject, reduction = mapType, 
