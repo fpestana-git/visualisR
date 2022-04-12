@@ -1,3 +1,12 @@
+#' Draw Density Plot 
+#' 
+#' Function that generates density plots for a given data
+#' 
+#' @param metadata seurat data object
+#' @param cellType name of dataset to use on the saved objects
+#' @param heightValue height of the final plot (default 6 cm)
+#' @param widthValue width of the final plot (default 6 cm)
+
 # Function that draws density plots
 drawDensityPlot <- function(metadata, cellType,widthValue = 4,heightValue = 9.8,resultsFolder = resultsDirectory){
   # Generate density data

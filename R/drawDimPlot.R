@@ -2,7 +2,7 @@
 #' 
 #' Function that generates dim plots for a given Seurat dataset
 #' 
-#' @param dataset seurat data object
+#' @param seuratObject seurat data object
 #' @param datasetName name of dataset to use on the saved objects
 #' @param mapType set umap as default
 #' @param splitValue if the umap is to be splitted
@@ -17,8 +17,8 @@
 #' @param resultsFolder directory where to save the results 
 #' @param plotMinimal show a minimal plot
 
-drawDimPlot <- function(dataset, datasetName, mapType = "umap",splitValue = NULL, heightValue = 10,widthValue = 10,colorVector = NULL,cells2highlight = NULL, sizeHighlightedCells = NULL,groupbyValue = NULL,labelValue = F,showLegend =FALSE, resultsFolder = resultsDirectory, plotMinimal = FALSE){
-  dimplot_n <- DimPlot(dataset, reduction = mapType, 
+drawDimPlot <- function(seuratObject, datasetName, mapType = "umap",splitValue = NULL, heightValue = 10,widthValue = 10,colorVector = NULL,cells2highlight = NULL, sizeHighlightedCells = NULL,groupbyValue = NULL,labelValue = F,showLegend =FALSE, resultsFolder = resultsDirectory, plotMinimal = FALSE){
+  dimplot_n <- DimPlot(seuratObject, reduction = mapType, 
                        label = labelValue, 
                        label.size = 6,
                        pt.size = 0.1,
@@ -42,8 +42,8 @@ drawDimPlot <- function(dataset, datasetName, mapType = "umap",splitValue = NULL
   }
   
   # Extract resolution and pca value
-  resolutionValue <- dataset@reductions$resolutionValue
-  pcaValue <- dataset@reductions$pcaValueOptimal
+  resolutionValue <- seuratObject@reductions$resolutionValue
+  pcaValue <- seuratObject@reductions$pcaValueOptimal
   
   # Create folder
   dir.create(file.path("../Results/DimPlot/"))

@@ -5,7 +5,7 @@
 \title{Draw Dim Plot}
 \usage{
 drawDimPlot(
-  dataset,
+  seuratObject,
   datasetName,
   mapType = "umap",
   splitValue = NULL,
@@ -22,7 +22,7 @@ drawDimPlot(
 )
 }
 \arguments{
-\item{dataset}{seurat data object}
+\item{seuratObject}{seurat data object}
 
 \item{datasetName}{name of dataset to use on the saved objects}
 

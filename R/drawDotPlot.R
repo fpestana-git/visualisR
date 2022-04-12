@@ -1,7 +1,19 @@
-drawDotPlot <- function(dataset, genesInterest, splitby = NULL, plotName,plotwidth = 10, plotheight = 10){
-  dataset <- dataset
-  genesInterest <- genesInterest
-  splitby <- splitby
+#' Draw Dot Plot 
+#' 
+#' Function that generates dot plots for a given Seurat dataset
+#' 
+#' @param dataset seurat data object
+#' @param genesInterest define which features (genes) to show
+#' @param splitby 
+#' @param plotName define name of the plot
+#' @param heightValue height of the final plot (default 6 cm)
+#' @param widthValue width of the final plot (default 6 cm)
+
+
+drawDotPlot <- function(dataset, genesInterest, splitby = NULL, plotName,widthValue = 10, heightValue = 10){
+  # dataset <- dataset
+  # genesInterest <- genesInterest
+  # splitby <- splitby
   #dotcolors <- dotcolors
   dotPlotClusters <- DotPlot(dataset, 
                              features = genesInterest,
@@ -29,18 +41,18 @@ drawDotPlot <- function(dataset, genesInterest, splitby = NULL, plotName,plotwid
   dotPlotClusters
   
   # Create folder
-  dir.create(file.path("Results/DotPlot/"))
+  dir.create(file.path("../Results/DotPlot/"))
   
   ggsave(plot = dotPlotClusters,
-         filename = paste0("Results/DotPlot/",format(Sys.time(), "%Y%m%d_%H%M%S"),"_DotPlot_",plotName, ".png"),
-         width = plotwidth, #28 default
-         height = plotheight,
+         filename = paste0("../Results/DotPlot/",format(Sys.time(), "%Y%m%d_%H%M%S"),"_DotPlot_",plotName, ".png"),
+         width = widthValue, #28 default
+         height = heightValue,
          units = "cm") # height was 4, width 15
   
   ggsave(plot = dotPlotClusters,
-         filename = paste0("Results/DotPlot/",format(Sys.time(), "%Y%m%d_%H%M%S"),"_DotPlot_",plotName,".pdf"),
-         width = plotwidth, #28 default
-         height = plotheight,
+         filename = paste0("../Results/DotPlot/",format(Sys.time(), "%Y%m%d_%H%M%S"),"_DotPlot_",plotName,".pdf"),
+         width = widthValue, #28 default
+         height = heightValue,
          units = "cm") # height was 4
   
   dotPlotClusters

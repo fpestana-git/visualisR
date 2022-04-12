@@ -15,5 +15,3 @@ RoxygenNote: 7.1.2
 Imports:
     ggplot2 (>= 3.3.5),
     dplyr (>= 1.0.8)
-
-    

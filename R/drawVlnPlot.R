@@ -94,18 +94,18 @@ drawVlnPlot <- function(dataset, feature = featureList,plotName = featureGroup, 
   p <- ggarrange(plots = plotList, nrow = nrowValue,ncol = ncolValue)
   
   # Create folder
-  dir.create(file.path(resultsFolder,"/VlnPlot/"))
+  dir.create(file.path("../Results/VlnPlot/"))
   
   # Save plot in png format
   ggsave(plot = p,
-         filename = paste0(resultsFolder,"/VlnPlot/", format(Sys.time(), "%Y%m%d_%H%M%S"),"_",datasetName,"_", plotName,"_ViolinPlot.png"),
+         filename = paste0("../Results/VlnPlot/", format(Sys.time(), "%Y%m%d_%H%M%S"),"_",datasetName,"_", plotName,".png"),
          width = widthValue,
          height = heightValue,
          units = "cm",limitsize = FALSE)
   
   # Save plot in pdf format
   ggsave(plot = p,
-         filename = paste0(resultsFolder,"/VlnPlot/", format(Sys.time(), "%Y%m%d_%H%M%S"),"_",datasetName,"_", plotName,"_ViolinPlot.pdf"),
+         filename = paste0("../Results/VlnPlot/", format(Sys.time(), "%Y%m%d_%H%M%S"),"_",datasetName,"_", plotName,"_ViolinPlot.pdf"),
          width = widthValue,
          height = heightValue,
          units = "cm",limitsize = FALSE)

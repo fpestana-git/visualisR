@@ -1,5 +1,17 @@
-drawFeaturePlot <- function(dataset, feature,datasetName,resultsFolder = resultsDirectory,reductionValue = "umap", widthValue = 5, heightValue = 5,pointSizeValue = 0.3,nrowValue = 1, ncolValue = 1){
-  dataset <- dataset
+#' Draw Feature Plot 
+#' 
+#' Function that generates feature plots for given features
+#' 
+#' @param seuratObject seurat data object
+#' @param datasetName name of dataset to use on the saved objects
+#' @param featureNames name of the features
+#' @param reductionValue which dimensionality reduction method to use (default umap)
+#' @param pointSizeValue size of the points (default 0.3)
+#' @param nrowValue number of rows (default 1 for only one feature)
+#' @param ncolValue number of colums (default 1 for only one feature)
+
+drawFeaturePlot <- function(seuratObject, featureNames,datasetName,reductionValue = "umap", widthValue = 5, heightValue = 5,pointSizeValue = 0.3,nrowValue = 1, ncolValue = 1){
+
   #feature <- feature
   #FeaturePlot(dataset,features = feature)
   featureName <- "test"
@@ -27,7 +39,7 @@ drawFeaturePlot <- function(dataset, feature,datasetName,resultsFolder = results
     #print(feature[i])
     
     # Generate a single Violin plot
-    singlePlot <- FeaturePlot(dataset, features = feature[i], 
+    singlePlot <- FeaturePlot(seuratObject, features = feature[i], 
                              label = F, 
                              label.size = 5,
                              pt.size = pointSizeValue,order = F,reduction = reductionValue)+ 
