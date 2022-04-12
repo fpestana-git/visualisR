@@ -7,9 +7,7 @@
 drawDimPlot(
   dataset,
   datasetName,
-  pca,
   mapType = "umap",
-  resolution,
   splitValue = NULL,
   heightValue = 10,
   widthValue = 10,
@@ -29,8 +27,6 @@ drawDimPlot(
 \item{datasetName}{name of dataset to use on the saved objects}
 
 \item{mapType}{set umap as default}
-
-\item{resolution}{resolution value used for the clustering}
 
 \item{splitValue}{if the umap is to be splitted}
 

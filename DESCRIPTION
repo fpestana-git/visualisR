@@ -2,7 +2,7 @@ Package: visualisR
 Title: Graphic visualization for transcriptomics data
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+    person("Francisco", "Pestana", , "jfpestana91@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: This package will include functions for visualization of Seurat analysed data, 
   such as DimPlot and FeaturePlot. Multiple parameters are defined to easily create 
@@ -15,4 +15,5 @@ RoxygenNote: 7.1.2
 Imports:
     ggplot2 (>= 3.3.5),
     dplyr (>= 1.0.8)
+
     

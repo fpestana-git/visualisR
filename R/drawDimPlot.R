@@ -5,7 +5,6 @@
 #' @param dataset seurat data object
 #' @param datasetName name of dataset to use on the saved objects
 #' @param mapType set umap as default
-#' @param resolution resolution value used for the clustering
 #' @param splitValue if the umap is to be splitted
 #' @param heightValue height of the final plot (default 6 cm)
 #' @param widthValue width of the final plot (default 6 cm)
@@ -18,7 +17,7 @@
 #' @param resultsFolder directory where to save the results 
 #' @param plotMinimal show a minimal plot
 
-drawDimPlot <- function(dataset, datasetName, pca, mapType = "umap", resolution,splitValue = NULL, heightValue = 10,widthValue = 10,colorVector = NULL,cells2highlight = NULL, sizeHighlightedCells = NULL,groupbyValue = NULL,labelValue = F,showLegend =FALSE, resultsFolder = resultsDirectory, plotMinimal = FALSE){
+drawDimPlot <- function(dataset, datasetName, mapType = "umap",splitValue = NULL, heightValue = 10,widthValue = 10,colorVector = NULL,cells2highlight = NULL, sizeHighlightedCells = NULL,groupbyValue = NULL,labelValue = F,showLegend =FALSE, resultsFolder = resultsDirectory, plotMinimal = FALSE){
   dimplot_n <- DimPlot(dataset, reduction = mapType, 
                        label = labelValue, 
                        label.size = 6,
@@ -42,25 +41,18 @@ drawDimPlot <- function(dataset, datasetName, pca, mapType = "umap", resolution,
     dimplot_n <- dimplot_n + theme_nothing()
   }
   
+  # Extract resolution and pca value
+  resolutionValue <- dataset@reductions$resolutionValue
+  pcaValue <- dataset@reductions$pcaValueOptimal
+  
   # Create folder
-  #dir.create(file.path(resultsFolder,"/DimPlot/"))
   dir.create(file.path("../Results/DimPlot/"))
-  
-  # Save graph in png and pdf format
-  # ggsave(plot = dimplot_n,filename = paste0(resultsFolder, "/DimPlot/", format(Sys.time(), "%Y%m%d_%H%M%S"),"_",gsub(pattern = "[/]",replacement = "",datasetName), "_DimPlot_",pca,"_",resolution,".png"),         
-  #        width = widthValue,
-  #        height = heightValue,
-  #        units = "cm",limitsize = FALSE)
-  # ggsave(plot = dimplot_n,filename = paste0(resultsFolder, "/DimPlot/", format(Sys.time(), "%Y%m%d_%H%M%S"),"_",gsub(pattern = "[/]",replacement = "",datasetName), "_DimPlot_",pca,"_",resolution,".pdf"),         
-  #        width = widthValue,
-  #        height = heightValue,
-  #        units = "cm",limitsize = FALSE)
-  
-  ggsave(plot = dimplot_n,filename = paste0("../Results/DimPlot/", format(Sys.time(), "%Y%m%d_%H%M%S"),"_",gsub(pattern = "[/]",replacement = "",datasetName), "_DimPlot_",pca,"_",resolution,".png"),         
+
+  ggsave(plot = dimplot_n,filename = paste0("../Results/DimPlot/", format(Sys.time(), "%Y%m%d_%H%M%S"),"_",gsub(pattern = "[/]",replacement = "",datasetName), "_DimPlot_",pcaValue,"_",resolutionValue,".png"),         
          width = widthValue,
          height = heightValue,
          units = "cm",limitsize = FALSE)
-  ggsave(plot = dimplot_n,filename = paste0("../Results/DimPlot/", format(Sys.time(), "%Y%m%d_%H%M%S"),"_",gsub(pattern = "[/]",replacement = "",datasetName), "_DimPlot_",pca,"_",resolution,".pdf"),         
+  ggsave(plot = dimplot_n,filename = paste0("../Results/DimPlot/", format(Sys.time(), "%Y%m%d_%H%M%S"),"_",gsub(pattern = "[/]",replacement = "",datasetName), "_DimPlot_",pcaValue,"_",resolutionValue,".pdf"),         
          width = widthValue,
          height = heightValue,
          units = "cm",limitsize = FALSE)
