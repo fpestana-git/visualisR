@@ -16,7 +16,7 @@
 #' 
 #' @export drawHeatmapPlot
 
-drawHeatmapPlot <- function(seuratObject, featureNames, widthValue = 28, heightValue = 15, plotName, assaytype = "SCT",groupValue = "seurat_clusters",slotValue = "scale.data",drawLinesValue = T,cellsValue = NULL){
+drawHeatmapPlot <- function(seuratObject, featureNames, widthValue = 28, heightValue = 15, plotName, assaytype = "SCT",groupValue = "orig.ident",slotValue = "scale.data",drawLinesValue = T,cellsValue = NULL){
 
   #dotcolors <- dotcolors
   heatmapObject <- DoHeatmap(object = seuratObject,features = featureNames,assay = assaytype,group.by = groupValue,slot = slotValue,draw.lines = drawLinesValue, cells = cellsValue)
