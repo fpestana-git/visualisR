@@ -13,8 +13,10 @@ drawHeatmapPlot(
   assaytype = "SCT",
   groupValue = "orig.ident",
   slotValue = "scale.data",
-  drawLinesValue = T,
-  cellsValue = NULL
+  drawLinesValue = TRUE,
+  cellsValue = NULL,
+  groupColorValues = NULL,
+  showLegend = FALSE
 )
 }
 \arguments{
@@ -34,9 +36,13 @@ drawHeatmapPlot(
 
 \item{slotValue}{TEST}
 
-\item{drawLinesValue}{TEST}
+\item{drawLinesValue}{whether to show the lines separating the groups (default = TRUE)}
 
 \item{cellsValue}{TEST}
+
+\item{groupColorValues}{list of colors for the groups (default = NULL)}
+
+\item{showLegend}{show or hide plot legend (default FALSE)}
 
 \item{datasetName}{name of the dataset (e.g., Pestana2022)}
 }

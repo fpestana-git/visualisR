@@ -44,7 +44,7 @@ drawDimPlot(
 
 \item{labelValue}{show or hide cluster labels (default FALSE)}
 
-\item{showLegend}{show or hide plot legend (default FALSE),}
+\item{showLegend}{show or hide plot legend (default FALSE)}
 
 \item{resultsFolder}{directory where to save the results}
 

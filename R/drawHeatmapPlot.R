@@ -11,8 +11,10 @@
 #' @param assaytype TEST
 #' @param groupValue TEST
 #' @param slotValue TEST
-#' @param drawLinesValue TEST
+#' @param drawLinesValue whether to show the lines separating the groups (default = TRUE)
 #' @param cellsValue TEST
+#' @param groupColorValues list of colors for the groups (default = NULL)
+#' @param showLegend show or hide plot legend (default FALSE)
 #' 
 #' @export drawHeatmapPlot
 #' 
@@ -20,11 +22,33 @@
 #' drawHeatmapPlot(seuratObject = myseuratobject,featureNames =  c("Snap25","Slc17a7","Tbr1"),plotName = "neurons")
 
 
-drawHeatmapPlot <- function(seuratObject, featureNames, widthValue = 28, heightValue = 15, plotName, assaytype = "SCT",groupValue = "orig.ident",slotValue = "scale.data",drawLinesValue = T,cellsValue = NULL){
+drawHeatmapPlot <- function(seuratObject, featureNames, widthValue = 28, heightValue = 15, plotName, assaytype = "SCT",groupValue = "orig.ident",slotValue = "scale.data",drawLinesValue = TRUE,cellsValue = NULL,groupColorValues = NULL, showLegend = FALSE){
 
   #dotcolors <- dotcolors
-  heatmapObject <- DoHeatmap(object = seuratObject,features = featureNames,assay = assaytype,group.by = groupValue,slot = slotValue,draw.lines = drawLinesValue, cells = cellsValue)
+  heatmapObject <- DoHeatmap(object = seuratObject,
+                             features = featureNames,
+                             assay = assaytype,
+                             group.by = groupValue,
+                             group.colors = groupColorValues,
+                             slot = slotValue,
+                             draw.lines = drawLinesValue, 
+                             cells = cellsValue) + 
+    theme(axis.text.y  = element_text(size=8, 
+                                      face = 4, 
+                                      family = "Times")) +  scale_fill_viridis()
   
+  # Extract legend
+  legend <- get_legend(heatmapObject)
+  
+  # Remove legend
+  if (showLegend == FALSE) {
+    heatmapObject <- heatmapObject + NoLegend()
+  }
+  
+  # Only include scalebar
+  heatmapObject <- plot_grid(heatmapObject, legend$grobs[[2]],
+            nrow = 1,ncol = 2
+  )
   
   # Create folder
   dir.create(file.path("../Results/HeatmapPlot/"),recursive = T)

@@ -13,7 +13,7 @@
 #' @param sizeHighlightedCells change size of highlighted cells
 #' @param groupbyValue metadava variable to visualize in the dim plot 
 #' @param labelValue show or hide cluster labels (default FALSE)
-#' @param showLegend show or hide plot legend (default FALSE), 
+#' @param showLegend show or hide plot legend (default FALSE)
 #' @param resultsFolder directory where to save the results 
 #' @param plotMinimal show a minimal plot
 #' 
@@ -33,7 +33,7 @@ drawDimPlot <- function(seuratObject, datasetName, mapType = "umap",splitValue =
           panel.border = element_rect(colour = "black"),plot.title = element_blank())  +
     scale_y_continuous(breaks=c(-10,0, 10)) +
     scale_x_continuous(breaks=c(-10,0, 10)) + 
-    guides(colour = guide_legend(override.aes = list(shape = 15,size=6,ncol=1)))
+    guides(colour = guide_legend(override.aes = list(shape = 15,size=6,ncol=1))) 
   
   if (showLegend == FALSE) {
     dimplot_n <- dimplot_n + NoLegend()
