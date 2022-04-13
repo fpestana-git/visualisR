@@ -19,7 +19,7 @@
 drawHeatmapPlot <- function(seuratObject, featureNames, widthValue = 28, heightValue = 15, plotName, assaytype = "SCT",groupValue = "seurat_clusters",slotValue = "scale.data",drawLinesValue = T,cellsValue = NULL){
 
   #dotcolors <- dotcolors
-  heatmapObject <- DoHeatmap(object = seuratObject,features = genesInterest,assay = assaytype,group.by = groupValue,slot = slotValue,draw.lines = drawLinesValue, cells = cellsValue)
+  heatmapObject <- DoHeatmap(object = seuratObject,features = featureNames,assay = assaytype,group.by = groupValue,slot = slotValue,draw.lines = drawLinesValue, cells = cellsValue)
   
   
   # Create folder
