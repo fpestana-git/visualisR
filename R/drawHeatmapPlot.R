@@ -23,18 +23,18 @@ drawHeatmapPlot <- function(seuratObject, featureNames, widthValue = 28, heightV
   
   
   # Create folder
-  dir.create(file.path("../Results/HeatmapPlot/"))
+  dir.create(path = "../Results/HeatmapPlot/")
   
   # Save plot as png
   ggsave(plot = heatmapObject,
-         filename = paste0("../Results/HeatmapPlot/",format(Sys.time(), "%Y%m%d_%H%M%S"),plotName, ".png"),
+         filename = paste0("../Results/HeatmapPlot/",format(Sys.time(), "%Y%m%d_%H%M%S"),"_",plotName, ".png"),
          width = widthValue, #28 default
          height = heightValue,
          units = "cm") # height was 4, width 15
   
   # Save plot as pdf
   ggsave(plot = heatmapObject,
-         filename = paste0("../Results/HeatmapPlot/",format(Sys.time(), "%Y%m%d_%H%M%S"),plotName,".pdf"),
+         filename = paste0("../Results/HeatmapPlot/",format(Sys.time(), "%Y%m%d_%H%M%S"),"_",plotName,".pdf"),
          width = widthValue, #28 default
          height = heightValue,
          units = "cm") # height was 4
