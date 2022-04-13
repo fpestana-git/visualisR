@@ -48,7 +48,7 @@ drawDimPlot <- function(seuratObject, datasetName, mapType = "umap",splitValue =
   pcaValue <- seuratObject@reductions$pcaValueOptimal
   
   # Create folder
-  dir.create(file.path("../Results/DimPlot/"),recursive = T)
+  dir.create(file.path("../Results/DimPlot/"),recursive = T,showWarnings = F)
 
   ggsave(plot = dimplot_n,filename = paste0("../Results/DimPlot/", format(Sys.time(), "%Y%m%d_%H%M%S"),"_",gsub(pattern = "[/]",replacement = "",datasetName), "_DimPlot_",pcaValue,"_",resolutionValue,".png"),         
          width = widthValue,
