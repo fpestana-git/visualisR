@@ -8,6 +8,8 @@
 #' @param plotName define name of the plot
 #' @param heightValue height of the final plot (default 6 cm)
 #' @param widthValue width of the final plot (default 6 cm)
+#' 
+#' @export drawDotPlot
 
 
 drawDotPlot <- function(dataset, genesInterest, splitby = NULL, plotName,widthValue = 10, heightValue = 10){

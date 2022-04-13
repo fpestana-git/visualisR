@@ -13,6 +13,8 @@
 #' @param ncolValue number of columns in the final panel
 #' @param fontsizeValue size of text in y axis
 #' @param addXlabel if x axis ticks should be labeled
+#' 
+#' @export drawVlnPlot
 
 drawVlnPlot <- function(dataset, feature = featureList,plotName = featureGroup, orderIdentity = orderIdentity, identity = identityValue,splitby = NULL,datasetName,pointSize = 0.1, colorVector = NULL,heightValue = 6,widthValue = 12, nrowValue = 2, ncolValue = 1,fontsizeValueX = 15,fontsizeValueY=15, addXlabel = T,resultsFolder = resultsDirectory){
   # Change main identities

@@ -1,4 +1,10 @@
-
+#' Draw Spatial Plot 
+#' 
+#' Function that generates dot plots for a given Seurat dataset
+#' 
+#' @param dataset TEST
+#' 
+#' @export drawSpatialPlot
 
 # drawSpatialDim <- function(groupLevel,subsample,metadata,dataset,widthValue = 5,heightValue = 7.5,splitValue = FALSE){
 #   if (subsample != F) {

@@ -9,6 +9,8 @@
 #' @param pointSizeValue size of the points (default 0.3)
 #' @param nrowValue number of rows (default 1 for only one feature)
 #' @param ncolValue number of colums (default 1 for only one feature)
+#' 
+#' @export drawFeaturePlot
 
 drawFeaturePlot <- function(seuratObject, featureNames,datasetName,reductionValue = "umap", widthValue = 5, heightValue = 5,pointSizeValue = 0.3,nrowValue = 1, ncolValue = 1){
 

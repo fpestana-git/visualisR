@@ -6,6 +6,8 @@
 #' @param cellType name of dataset to use on the saved objects
 #' @param heightValue height of the final plot (default 6 cm)
 #' @param widthValue width of the final plot (default 6 cm)
+#' 
+#' @export drawDensityPlot
 
 # Function that draws density plots
 drawDensityPlot <- function(metadata, cellType,widthValue = 4,heightValue = 9.8,resultsFolder = resultsDirectory){

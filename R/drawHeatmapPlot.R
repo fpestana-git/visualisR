@@ -13,6 +13,8 @@
 #' @param slotValue TEST
 #' @param drawLinesValue TEST
 #' @param cellsValue TEST
+#' 
+#' @export drawHeatmapPlot
 
 drawHeatmapPlot <- function(seuratObject, featureNames, widthValue = 28, heightValue = 15, plotName, assaytype = "SCT",groupValue = "seurat_clusters",slotValue = "scale.data",drawLinesValue = T,cellsValue = NULL){
 
