@@ -23,7 +23,7 @@ drawHeatmapPlot <- function(seuratObject, featureNames, widthValue = 28, heightV
   
   
   # Create folder
-  dir.create(path = "../Results/HeatmapPlot/")
+  dir.create(file.path("../Results/HeatmapPlot/"),recursive = T)
   
   # Save plot as png
   ggsave(plot = heatmapObject,
