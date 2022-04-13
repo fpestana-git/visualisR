@@ -15,6 +15,10 @@
 #' @param cellsValue TEST
 #' 
 #' @export drawHeatmapPlot
+#' 
+#' @example 
+#' drawHeatmapPlot(seuratObject = myseuratobject,featureNames =  c("Snap25","Slc17a7","Tbr1"),plotName = "neurons")
+
 
 drawHeatmapPlot <- function(seuratObject, featureNames, widthValue = 28, heightValue = 15, plotName, assaytype = "SCT",groupValue = "orig.ident",slotValue = "scale.data",drawLinesValue = T,cellsValue = NULL){
 
