@@ -11,7 +11,7 @@ drawHeatmapPlot(
   heightValue = 15,
   plotName,
   assaytype = "SCT",
-  groupValue = "seurat_clusters",
+  groupValue = "orig.ident",
   slotValue = "scale.data",
   drawLinesValue = T,
   cellsValue = NULL
