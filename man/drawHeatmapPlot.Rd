@@ -49,3 +49,7 @@ drawHeatmapPlot(
 \description{
 Function that generates heamap plots for given features
 }
+\examples{
+drawHeatmapPlot(seuratObject = myseuratobject,featureNames =  c("Snap25","Slc17a7","Tbr1"),plotName = "neurons")
+
+}

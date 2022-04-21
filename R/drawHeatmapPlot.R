@@ -16,11 +16,10 @@
 #' @param groupColorValues list of colors for the groups (default = NULL)
 #' @param showLegend show or hide plot legend (default FALSE)
 #' 
-#' @export drawHeatmapPlot
-#' 
-#' @example 
+#' @examples 
 #' drawHeatmapPlot(seuratObject = myseuratobject,featureNames =  c("Snap25","Slc17a7","Tbr1"),plotName = "neurons")
-
+#' 
+#' @export drawHeatmapPlot
 
 drawHeatmapPlot <- function(seuratObject, featureNames, widthValue = 28, heightValue = 15, plotName, assaytype = "SCT",groupValue = "orig.ident",slotValue = "scale.data",drawLinesValue = TRUE,cellsValue = NULL,groupColorValues = NULL, showLegend = FALSE){
 
@@ -46,7 +45,7 @@ drawHeatmapPlot <- function(seuratObject, featureNames, widthValue = 28, heightV
   }
   
   # Only include scalebar
-  heatmapObject <- plot_grid(heatmapObject, legend$grobs[[2]],
+  heatmapObject <- plot_grid(heatmapObject, legend$grobs[[1]],
             nrow = 1,ncol = 2
   )
   

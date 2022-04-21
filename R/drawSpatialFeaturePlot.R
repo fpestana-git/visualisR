@@ -1,4 +1,12 @@
-drawSpatialPlot <- function(features,dataset,metadata, subsample = FALSE){
+#' Draw Spatial Feature Plot for given genes
+#' 
+#' Function that generates spatial feature plots for a given gene and sample
+#' 
+#' @param dataset TEST
+#' 
+#' @export drawSpatialFeaturePlot
+
+drawSpatialFeaturePlot <- function(features,dataset,metadata, subsample = FALSE){
   if (subsample != F) {
     metadata <- metadata[which(metadata$orig.ident %in% subsample),]
     dataset <- dataset[,metadata$Name]
@@ -11,14 +19,17 @@ drawSpatialPlot <- function(features,dataset,metadata, subsample = FALSE){
   spatialSeurat <- AddMetaData(object = spatialSeurat, metadata = metadata)
   plot <- SpatialFeaturePlot(spatialSeurat,features = features,stroke = 0,pt.size.factor = 2,slot = "scale.data")+ ggplot2::scale_fill_continuous(low = "gray95", high = "Black") 
   
+  # Create folder
+  dir.create(file.path("../Results/SpatialFeaturePlot/"),recursive = T,showWarnings = F)
+  
   
   ggsave(plot = plot,
-         filename = paste0("../Results/SpatialPlot/",format(Sys.time(), "%Y%m%d_%H%M%S"),"_SpatialPlot_",features,".png"),
+         filename = paste0("../Results/SpatialFeaturePlot/",format(Sys.time(), "%Y%m%d_%H%M%S"),"_",features,".png"),
          width = 5,
          height = 7.5,
          units = "in",limitsize = FALSE)
   ggsave(plot = plot,
-         filename = paste0("../Results/SpatialPlot/",format(Sys.time(), "%Y%m%d_%H%M%S"),"_SpatialPlot_",features,".pdf"),
+         filename = paste0("../Results/SpatialFeaturePlot/",format(Sys.time(), "%Y%m%d_%H%M%S"),"_",features,".pdf"),
          width = 5,
          height = 7.5,
          units = "in",limitsize = FALSE)
