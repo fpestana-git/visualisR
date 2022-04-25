@@ -5,22 +5,22 @@
 \title{Draw Dot Plot}
 \usage{
 drawDotPlot(
-  dataset,
-  genesInterest,
-  splitby = NULL,
+  seuratObject,
   plotName,
+  featureValues,
+  splitby = NULL,
   widthValue = 10,
   heightValue = 10
 )
 }
 \arguments{
-\item{dataset}{seurat data object}
-
-\item{genesInterest}{define which features (genes) to show}
-
-\item{splitby}{}
+\item{seuratObject}{seurat data object}
 
 \item{plotName}{define name of the plot}
+
+\item{featureValues}{define which features (genes) to show}
+
+\item{splitby}{metadata variable to split (default NULL)}
 
 \item{widthValue}{width of the final plot (default 6 cm)}
 
@@ -28,4 +28,9 @@ drawDotPlot(
 }
 \description{
 Function that generates dot plots for a given Seurat dataset
+}
+\examples{
+drawDotPlot(seuratObject = seuratLOG,plotName = "test",featureValues = c("S100A9","NKG7","LDHB","CD79A"))
+
+
 }

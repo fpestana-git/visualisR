@@ -6,11 +6,11 @@
 \usage{
 drawFeaturePlot(
   seuratObject,
-  featureNames,
+  featureValues,
   datasetName,
   reductionValue = "umap",
-  widthValue = 5,
-  heightValue = 5,
+  widthValue = 7,
+  heightValue = 7,
   pointSizeValue = 0.3,
   nrowValue = 1,
   ncolValue = 1
@@ -19,11 +19,15 @@ drawFeaturePlot(
 \arguments{
 \item{seuratObject}{seurat data object}
 
-\item{featureNames}{name of the features}
+\item{featureValues}{name of the features}
 
 \item{datasetName}{name of dataset to use on the saved objects}
 
 \item{reductionValue}{which dimensionality reduction method to use (default umap)}
+
+\item{widthValue}{width of the final plot (default 7 cm)}
+
+\item{heightValue}{height of the final plot (default 7 cm)}
 
 \item{pointSizeValue}{size of the points (default 0.3)}
 
@@ -33,4 +37,7 @@ drawFeaturePlot(
 }
 \description{
 Function that generates feature plots for given features
+}
+\examples{
+drawFeaturePlot(seuratObject = seuratLOG,feature = c("S100A9","NKG7","LDHB","CD79A"),nrowValue = 2,ncolValue = 2,datasetName = "test")
 }
