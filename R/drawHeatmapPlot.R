@@ -31,10 +31,11 @@ drawHeatmapPlot <- function(seuratObject, featureNames, widthValue = 28, heightV
                              group.colors = groupColorValues,
                              slot = slotValue,
                              draw.lines = drawLinesValue, 
-                             cells = cellsValue) + 
+                             cells = cellsValue,
+                             size = 8) + 
     theme(axis.text.y  = element_text(size=8, 
                                       face = 4, 
-                                      family = "Times")) +  scale_fill_viridis()
+                                      family = "Helvetica")) +  scale_fill_viridis()
   
   # Extract legend
   legend <- get_legend(heatmapObject)
@@ -42,12 +43,14 @@ drawHeatmapPlot <- function(seuratObject, featureNames, widthValue = 28, heightV
   # Remove legend
   if (showLegend == FALSE) {
     heatmapObject <- heatmapObject + NoLegend()
+  }else {
+    # Only include scalebar
+    heatmapObject <- plot_grid(heatmapObject, legend$grobs[[1]],
+                               nrow = 1,ncol = 2
+    )
   }
   
-  # Only include scalebar
-  heatmapObject <- plot_grid(heatmapObject, legend$grobs[[1]],
-            nrow = 1,ncol = 2
-  )
+  
   
   # Create folder
   dir.create(file.path("../Results/HeatmapPlot/"),recursive = T)

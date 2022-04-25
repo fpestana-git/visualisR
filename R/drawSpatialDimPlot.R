@@ -29,7 +29,7 @@ drawSpatialDimPlot <- function(spatialObject,groupValue,recursiveSection = TRUE,
   if (recursiveSection) {
     for (i in levels(spatialObject)) {
       # Subset section
-      individualSection <- subset(x  = spatial,idents = i)
+      individualSection <- subset(x  = spatialObject,idents = i)
       # Make plot
       individualSection <- SpatialDimPlot(object = individualSection,
                              group.by = groupValue,
@@ -46,7 +46,7 @@ drawSpatialDimPlot <- function(spatialObject,groupValue,recursiveSection = TRUE,
       
     }else {
       # Subset section
-      individualSection <- subset(x  = spatial,idents = sectionID)
+      individualSection <- subset(x  = spatialObject,idents = sectionID)
       # Make plot
       individualSection <- SpatialDimPlot(object = individualSection,
                                  group.by = groupValue,
