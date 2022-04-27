@@ -6,6 +6,7 @@
 #' @param datasetName name of the dataset (e.g., Pestana2022)
 #' @param featureNames list of features to plot
 #' @param plotName name of the plot
+#' @param labelValue show or not the labels above the groups (default TRUE)
 #' @param heightValue height of the final plot (default 15 cm)
 #' @param widthValue width of the final plot (default 28 cm)
 #' @param assaytype TEST
@@ -21,7 +22,7 @@
 #' 
 #' @export drawHeatmapPlot
 
-drawHeatmapPlot <- function(seuratObject, featureNames, widthValue = 28, heightValue = 15, plotName, assaytype = "SCT",groupValue = "orig.ident",slotValue = "scale.data",drawLinesValue = TRUE,cellsValue = NULL,groupColorValues = NULL, showLegend = FALSE){
+drawHeatmapPlot <- function(seuratObject, featureNames, labelValue = TRUE,widthValue = 28, heightValue = 15, plotName, assaytype = "SCT",groupValue = "orig.ident",slotValue = "scale.data",drawLinesValue = TRUE,cellsValue = NULL,groupColorValues = NULL, showLegend = FALSE){
 
   #dotcolors <- dotcolors
   heatmapObject <- DoHeatmap(object = seuratObject,
@@ -32,10 +33,11 @@ drawHeatmapPlot <- function(seuratObject, featureNames, widthValue = 28, heightV
                              slot = slotValue,
                              draw.lines = drawLinesValue, 
                              cells = cellsValue,
-                             size = 8) + 
-    theme(axis.text.y  = element_text(size=8, 
+                             size = 4,
+                             label = labelValue) + 
+    theme(axis.text  = element_text(size=8, 
                                       face = 4, 
-                                      family = "Helvetica")) +  scale_fill_viridis()
+                                      family = "Helvetica"),text = element_text(size = 8,family = "Helvetica")) +  scale_fill_viridis() 
   
   # Extract legend
   legend <- get_legend(heatmapObject)
@@ -45,9 +47,12 @@ drawHeatmapPlot <- function(seuratObject, featureNames, widthValue = 28, heightV
     heatmapObject <- heatmapObject + NoLegend()
   }else {
     # Only include scalebar
-    heatmapObject <- plot_grid(heatmapObject, legend$grobs[[1]],
-                               nrow = 1,ncol = 2
-    )
+    heatmapObject <- heatmapObject + NoLegend()
+    # heatmapObject <- plot_grid(heatmapObject, legend$grobs[[1]],
+    #                            nrow = 1,ncol = 2)
+    heatmapObject <- heatmapObject + legend$grobs[[1]] 
+    # heatmapObject <- heatmapObject
+    
   }
   
   

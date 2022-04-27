@@ -7,6 +7,7 @@
 drawHeatmapPlot(
   seuratObject,
   featureNames,
+  labelValue = TRUE,
   widthValue = 28,
   heightValue = 15,
   plotName,
@@ -23,6 +24,8 @@ drawHeatmapPlot(
 \item{seuratObject}{seurat data object}
 
 \item{featureNames}{list of features to plot}
+
+\item{labelValue}{show or not the labels above the groups (default TRUE)}
 
 \item{widthValue}{width of the final plot (default 28 cm)}
 
